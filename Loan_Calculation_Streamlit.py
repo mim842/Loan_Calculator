@@ -49,15 +49,13 @@ if existing_loan == 'Yes':
     additional_payment = st.number_input("Enter the additional monthly principal payment:", min_value=0.0)
 
     if st.button("Calculate Loan Details"):
-        months_remaining, total_interest_paid = calculate_remaining_loan_time(interest_rate, principal, monthly_payment)
-        st.write(f"Time remaining on your loan: {months_remaining//12} years and {months_remaining%12} months")
-        st.write(f"Total interest paid: ${total_interest_paid:,.2f}")
-
         modified_monthly_payment = monthly_payment + additional_payment
         new_number_of_payments, new_total_interest_paid = calculate_remaining_payments(principal, interest_rate / 12, modified_monthly_payment)
+        
+        st.write(f"Time remaining on your loan with additional payment: {new_number_of_payments//12} years and {new_number_of_payments%12} months")
+        st.write(f"New total interest paid with additional payment: ${new_total_interest_paid:,.2f}")
         modified_total_cost = modified_monthly_payment * new_number_of_payments
-        st.write(f"Total cost with additional \${additional_payment} monthly payment: ${modified_total_cost:,.2f}")
-        st.write(f"Time required to pay off the loan with additional principal payments: {int(new_number_of_payments / 12)} years or {new_number_of_payments} months")
+        st.write(f"Total cost with additional \${additional_payment:,.2f} monthly payment: ${modified_total_cost:,.2f}")
         st.write(f"New total interest paid with additional payment: ${new_total_interest_paid:,.2f}")
 
 else:
