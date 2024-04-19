@@ -63,7 +63,7 @@ if existing_loan == 'Yes':
 else:
     purchase_price = st.number_input("Enter the total purchase price:", min_value=0.01)
     down_payment = st.number_input("Enter the down payment:", min_value=0.0)
-    interest = st.number_input("Enter the annual interest rate (as a decimal, e.g., 0.05 for 5%):", min_value=0.01)
+    interest = st.number_input("Enter the annual interest rate (as a decimal, e.g., 0.05 for 5%):", min_value=0.0, max_value=1.0, value=0.05, step=0.001, format="%.4f")
     term_years = st.number_input("Enter the term of the loan in years:", min_value=1, format='%d')
     additional_payment = st.number_input("Enter the additional monthly principal payment:", min_value=0.0)
 
