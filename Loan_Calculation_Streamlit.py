@@ -51,7 +51,7 @@ def plot_payment_impact(principal, interest_rate, base_monthly_payment, addition
     additional_payments = [0, additional_payment]
     colors = ['blue', 'green']
     labels = ['Standard Payment', f'Additional +${additional_payment}']
-    
+
     total_amounts = []
     payment_counts = []
 
@@ -68,17 +68,14 @@ def plot_payment_impact(principal, interest_rate, base_monthly_payment, addition
 
     for i in range(len(total_amounts)):
         plt.text(i, payment_counts[i], f'Total: ${total_amounts[i]:,.0f}', ha='center', va='bottom')
+        # Position month text in the center of the bar
+        plt.text(i, payment_counts[i]/2, f'{payment_counts[i]} months', ha='center', va='center', color='white', fontweight='bold')
 
     plt.ylabel('Number of Payments')
     plt.title('Impact of Additional Payments on Loan Term')
     plt.xticks(range(len(additional_payments)), labels)
 
-    # Correcting the position of the legend
-    if payment_counts[1] > payment_counts[0]:
-        legend_loc = 'center'
-    else:
-        legend_loc = 'center'
-    plt.legend([bars[0][0], bars[1][0]], [labels[0], labels[1]], loc=legend_loc)
+    plt.legend([bars[0][0], bars[1][0]], [labels[0], labels[1]], loc='center')
 
     plt.tight_layout()
     st.pyplot(plt)
