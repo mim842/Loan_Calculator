@@ -89,7 +89,6 @@ if existing_loan == 'Yes':
         st.write(f"New total interest paid with additional payment: ${new_total_interest_paid:,.2f}")
         modified_total_cost = modified_monthly_payment * new_number_of_payments
         st.write(f"Total cost with additional \${additional_payment:,.2f} monthly payment: ${modified_total_cost:,.2f}")
-        st.write(f"New total interest paid with additional payment: ${new_total_interest_paid:,.2f}")
         
         detailed_schedule = generate_amortization_schedule(principal, interest_rate, monthly_payment, additional_payment)
         st.write("Monthly Amortization Schedule")
