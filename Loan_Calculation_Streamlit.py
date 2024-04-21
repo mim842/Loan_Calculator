@@ -72,7 +72,7 @@ def plot_payment_impact(principal, interest_rate, base_monthly_payment, addition
         plt.text(i, payment_counts[i]/2, f'{payment_counts[i]} months', ha='center', va='center', color='white', fontweight='bold')
 
     plt.ylabel('Number of Payments')
-    plt.title('Impact of Additional Payments on Loan Term')
+    plt.title('Impact of Additional Payments Payments on Loan Term')
     plt.xticks(range(len(additional_payments)), labels)
 
     plt.legend([bars[0][0], bars[1][0]], [labels[0], labels[1]], loc='center')
